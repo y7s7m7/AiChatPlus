@@ -2,10 +2,12 @@ package main
 
 import (
 	"embed"
+
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 	"github.com/wailsapp/wails/v2/pkg/options/linux"
+	"github.com/wailsapp/wails/v2/pkg/options/mac"
 	"github.com/wailsapp/wails/v2/pkg/options/windows"
 )
 
@@ -18,10 +20,10 @@ func main() {
 	// Create application with options
 	err := wails.Run(&options.App{
 		Title:     "AiChatPlus",
-		Width:     1720,
-		Height:    1080,
-		MinWidth:  1280,
-		MinHeight: 960,
+		Width:     1024,
+		Height:    720,
+		MinWidth:  800,
+		MinHeight: 600,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
@@ -35,6 +37,10 @@ func main() {
 			WindowIsTranslucent: true,
 		},
 		Windows: &windows.Options{
+			WindowIsTranslucent:  true,
+			WebviewIsTransparent: true,
+		},
+		Mac: &mac.Options{
 			WindowIsTranslucent:  true,
 			WebviewIsTransparent: true,
 		},

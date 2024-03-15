@@ -44,7 +44,8 @@ EventsOn("onMessage",(data)=>{
 })
 const ContentScroll=(e:any)=>{
   const element = e.target;
-  ScrollBool.value = element.scrollHeight - element.scrollTop === element.clientHeight;
+  ScrollBool.value=false
+  ScrollBool.value = Math.abs(element.scrollHeight - element.scrollTop - element.clientHeight)<=20;
 }
 </script>
 
